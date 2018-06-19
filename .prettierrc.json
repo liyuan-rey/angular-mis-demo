@@ -1,0 +1,15 @@
+{
+  "singleQuote": false,
+  "overrides": [
+    {
+      "files": ".prettierrc",
+      "options": { "parser": "json" }
+    },
+    {
+      "files": "*.ts",
+      "options": {
+        "singleQuote": true
+      }
+    }
+  ]
+}
