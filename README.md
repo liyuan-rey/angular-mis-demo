@@ -1,4 +1,4 @@
-# AngularMisDemo
+# Angular MIS Demo
 
 Use Angular to implement general UI layouts for Management Information System(MIS).
 
