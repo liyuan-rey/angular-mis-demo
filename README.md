@@ -1,5 +1,7 @@
 # AngularMisDemo
 
+Use Angular to implement general UI layouts for Management Information System(MIS).
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.0.8.
 
 ## Development server
