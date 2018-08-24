@@ -1,17 +1,15 @@
-<div class="sidebar">
-  <div class="toggle">
-    <a href="">| | |</a>
-  </div>
+<div class="toggle">
+  <a href="">| | |</a>
+</div>
 
-  <div *ngFor="let page of navData" class="nav-page" [class.active]="isPageActived(page)" (click)="togglePage($event, page)">
-    <div class="nav-page-title sidebar-trans">
-      <span>{{page.title}}</span>
-    </div>
-    <ul class="sidebar-trans" [style.max-height.px]="isPageActived(page) ? page.items.length * 40 : 0">
-      <li *ngFor="let item of page.items" [class.active]="isPageActived(page) && currentItemId === item.key">
-        <a href="{{item.uri}}" (click)="itemClick($event, item)"> {{item.label}}
-        </a>
-      </li>
-    </ul>
+<div *ngFor="let page of navData" class="nav-page" [class.active]="isPageActived(page)" (click)="togglePage($event, page)">
+  <div class="nav-page-title sidebar-trans">
+    <span>{{page.title}}</span>
   </div>
+  <ul class="sidebar-trans" [style.max-height.px]="isPageActived(page) ? page.items.length * 40 : 0">
+    <li *ngFor="let item of page.items" [class.active]="isPageActived(page) && currentItemId === item.key">
+      <a href="{{item.uri}}" (click)="itemClick($event, item)"> {{item.label}}
+      </a>
+    </li>
+  </ul>
 </div>

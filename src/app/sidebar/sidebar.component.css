@@ -1,14 +1,14 @@
-.sidebar {
+:host {
   width: 180px;
   height: 100%;
   overflow: hidden;
 }
 
-.sidebar .sidebar-trans {
+.sidebar-trans {
   transition: max-height .12s ease;
 }
 
-.sidebar .toggle {
+.toggle {
   height: 30px;
   width: 100%;
   color: #aeb9c2;
@@ -17,14 +17,14 @@
   line-height: 30px !important;
 }
 
-.sidebar .nav-page {
+.nav-page {
   width: 100%;
   color: #fff;
   overflow-x: hidden;
   overflow-y: auto;
 }
 
-.sidebar .nav-page .nav-page-title {
+.nav-page .nav-page-title {
   height: 40px;
   line-height: 40px;
   background-color: #42485b;
@@ -33,11 +33,12 @@
   cursor: pointer;
   overflow: hidden;
 }
-.sidebar .nav-page .nav-page-title:hover {
+
+.nav-page .nav-page-title:hover {
   background: #00c1de;
 }
 
-.sidebar .nav-page ul {
+.nav-page ul {
   width: 200px;
   margin: 0;
   padding: 0;
@@ -46,7 +47,7 @@
   overflow-x: hidden;
 }
 
-.sidebar .nav-page li a {
+.nav-page li a {
   color: #fff;
   text-align: center;
   position: relative;
@@ -57,10 +58,10 @@
   overflow: hidden;
 }
 
-.sidebar .nav-page li a:hover {
+.nav-page li a:hover {
   background-color: #4a5064;
 }
 
-.sidebar .nav-page li.active a {
+.nav-page li.active a {
   background: #00c1de;
 }
