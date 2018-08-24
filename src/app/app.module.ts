@@ -6,14 +6,12 @@ import { IncidentsModule } from './incidents/incidents.module';
 import { AppComponent } from './app.component';
 import { TopbarComponent } from './topbar/topbar.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
-import { IncidentComponent } from './incident/incident.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     TopbarComponent,
-    SidebarComponent,
-    IncidentComponent
+    SidebarComponent
   ],
   imports: [BrowserModule, IncidentsModule],
   providers: [],
