@@ -23,10 +23,31 @@ const Incidents = [
   }
 ];
 
+const NavigatorInfo = [
+  {
+    key: _.uniqueId(),
+    title: "警情管理",
+    items: [
+      { key: _.uniqueId(), label: "当前警情", uri: "" },
+      { key: _.uniqueId(), label: "历史警情", uri: "" }
+    ]
+  },
+  {
+    key: _.uniqueId(),
+    title: "资源管理",
+    items: [
+      { key: _.uniqueId(), label: "资源人", uri: "" },
+      { key: _.uniqueId(), label: "资源车", uri: "" },
+      { key: _.uniqueId(), label: "资源物资", uri: "" }
+    ]
+  }
+];
+
 function getData() {
   return {
     loginUser: LoginUser,
-    incidents: Incidents
+    incidents: Incidents,
+    navInfo: NavigatorInfo
   };
 }
 
@@ -50,6 +71,10 @@ class ClientSDK {
 
   getIncidentInfo(id) {
     return getData().incidents.find(incident => incident.id === id);
+  }
+
+  getNavigatorInfo() {
+    return getData().navInfo;
   }
 }
 
