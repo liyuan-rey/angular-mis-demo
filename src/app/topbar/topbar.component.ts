@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import svc from '../../sdk/ClientSDK';
+
+import { IncidentService } from '../incidents/incident.service';
+import { UserService } from '../shared/user.service';
 
 @Component({
   selector: 'app-topbar',
@@ -9,13 +11,14 @@ import svc from '../../sdk/ClientSDK';
 export class TopbarComponent implements OnInit {
   noticeCount: number;
   username: string;
-  logo: string;
 
-  constructor() {}
+  constructor(
+    private userService: UserService,
+    private incidentService: IncidentService
+  ) {}
 
   ngOnInit() {
-    this.noticeCount = svc.getIncidentCount();
-    this.username = svc.getCurrentUser().username;
-    this.logo = '';
+    this.noticeCount = this.incidentService.getIncidentCount();
+    this.username = this.userService.getCurrentUser().username;
   }
 }

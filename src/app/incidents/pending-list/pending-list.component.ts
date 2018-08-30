@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
-import svc from '../../../sdk/ClientSDK';
+import { IncidentService } from '../incident.service';
 import common from '../shared/common';
+import { Incident } from '../shared/incident';
 
 @Component({
   selector: 'incidents-pending-list',
@@ -11,14 +12,14 @@ import common from '../shared/common';
 export class PendingListComponent implements OnInit {
   cmn: any;
   incidents: any[];
-  currentIncident: any;
+  currentIncident: Incident;
 
-  constructor() {}
+  constructor(private incidentService: IncidentService) {}
 
   ngOnInit() {
     this.cmn = common;
-    this.incidents = svc.getIncidentListSimple();
-    this.currentIncident = svc.getIncidentInfo();
+    this.incidents = this.incidentService.getIncidentListSimple();
+    this.currentIncident = this.incidentService.getIncidentInfo('');
   }
 
   selectIncident(e, id) {
@@ -28,6 +29,6 @@ export class PendingListComponent implements OnInit {
       return;
     }
 
-    this.currentIncident = svc.getIncidentInfo(id);
+    this.currentIncident = this.incidentService.getIncidentInfo(id);
   }
 }

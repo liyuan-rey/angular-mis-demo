@@ -2,13 +2,13 @@
   <a href="">| | |</a>
 </div>
 
-<div *ngFor="let page of navData" class="nav-page" [class.active]="isPageActived(page)" (click)="togglePage($event, page)">
+<div *ngFor="let item of navData" class="nav-page" [class.active]="isPageActived(item)" (click)="togglePage($event, item)">
   <div class="nav-page-title sidebar-trans">
-    <span>{{page.title}}</span>
+    <span>{{item.label}}</span>
   </div>
-  <ul class="sidebar-trans" [style.max-height.px]="isPageActived(page) ? page.items.length * 40 : 0">
-    <li *ngFor="let item of page.items" [class.active]="isPageActived(page) && currentItemId === item.key">
-      <a href="{{item.uri}}" (click)="itemClick($event, item)"> {{item.label}}
+  <ul class="sidebar-trans" [style.max-height.px]="isPageActived(item) ? item.children.length * 40 : 0">
+    <li *ngFor="let child of item.children" [class.active]="isPageActived(item) && currentItemId === child.id">
+      <a href="{{child.uri}}" (click)="itemClick($event, child)"> {{child.label}}
       </a>
     </li>
   </ul>
