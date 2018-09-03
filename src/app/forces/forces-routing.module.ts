@@ -1,14 +1,14 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-import { PendingListComponent } from './pending-list/pending-list.component';
+import { GroundForcesComponent } from './ground-forces/ground-forces.component';
 
 const routes: Routes = [
-  { path: 'incidents/pending-list', component: PendingListComponent }
+  { path: 'forces/ground-forces', component: GroundForcesComponent }
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class IncidentsRoutingModule {}
+export class ForcesRoutingModule {}
