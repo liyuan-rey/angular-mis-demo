@@ -1,4 +1,4 @@
-import uniqueId from 'lodash/uniqueId';
+import { default as uniqueId } from 'lodash-es/uniqueId';
 
 import { NavigationItem } from './navigation-item';
 

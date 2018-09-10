@@ -21,7 +21,7 @@
     "@angular/platform-browser-dynamic": "^6.1.7",
     "@angular/router": "^6.1.7",
     "core-js": "^2.5.4",
-    "lodash": "^4.17.10",
+    "lodash-es": "^4.17.10",
     "rxjs": "^6.3.2",
     "zone.js": "^0.8.26"
   },
@@ -32,7 +32,7 @@
     "@angular/language-service": "^6.1.7",
     "@types/jasmine": "~2.8.6",
     "@types/jasminewd2": "~2.0.3",
-    "@types/lodash": "^4.14.116",
+    "@types/lodash-es": "^4.17.1",
     "@types/node": "~8.9.4",
     "codelyzer": "~4.2.1",
     "jasmine-core": "~2.99.1",
