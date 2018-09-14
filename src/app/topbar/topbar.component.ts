@@ -18,7 +18,9 @@ export class TopbarComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.noticeCount = this.incidentService.getIncidentCount();
+    this.incidentService.getIncidentCount().subscribe(count => {
+      this.noticeCount = count;
+    });
     this.username = this.userService.getCurrentUser().username;
   }
 }

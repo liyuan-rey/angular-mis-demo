@@ -1,6 +1,9 @@
+import { Observable, of } from 'rxjs';
+
 import { Injectable } from '@angular/core';
 
 import { NAVIGATION_CONFIG } from './shared/navigation-config';
+import { NavigationItem } from './shared/navigation-item';
 
 @Injectable({
   providedIn: 'root'
@@ -8,7 +11,7 @@ import { NAVIGATION_CONFIG } from './shared/navigation-config';
 export class NavigationService {
   constructor() {}
 
-  getNavigationConfig() {
-    return NAVIGATION_CONFIG;
+  getNavigationConfig(): Observable<NavigationItem[]> {
+    return of(NAVIGATION_CONFIG);
   }
 }

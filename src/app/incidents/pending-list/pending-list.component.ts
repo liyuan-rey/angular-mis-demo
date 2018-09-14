@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { IncidentService } from '../incident.service';
-import common from '../shared/common';
+import { getLevelStyle, getLevelTitle } from '../shared/common';
 import { Incident } from '../shared/incident';
 
 @Component({
@@ -10,16 +10,22 @@ import { Incident } from '../shared/incident';
   styleUrls: ['./pending-list.component.css']
 })
 export class PendingListComponent implements OnInit {
-  cmn: any;
-  incidents: any[];
-  currentIncident: Incident;
+  common: any;
+  incidents: Incident[];
+  currentIncident?: Incident;
 
   constructor(private incidentService: IncidentService) {}
 
   ngOnInit() {
-    this.cmn = common;
-    this.incidents = this.incidentService.getIncidentListSimple();
-    this.currentIncident = this.incidentService.getIncidentInfo('');
+    this.common = {
+      getLevelStyle: getLevelStyle,
+      getLevelTitle: getLevelTitle
+    };
+    this.currentIncident = null;
+
+    this.incidentService.getIncidents().subscribe(incidents => {
+      this.incidents = incidents;
+    });
   }
 
   selectIncident(e, id) {
@@ -29,6 +35,8 @@ export class PendingListComponent implements OnInit {
       return;
     }
 
-    this.currentIncident = this.incidentService.getIncidentInfo(id);
+    this.incidentService.getIncident(id).subscribe(incident => {
+      this.currentIncident = incident;
+    });
   }
 }

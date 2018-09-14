@@ -10,9 +10,9 @@
       <ul>
         <li *ngFor="let incident of incidents" (click)="selectIncident($event, incident.id)">
           <div class="list-cell">
-            <div class="cell-icon" [ngClass]="cmn.getLevelStyle(incident.level)"></div>
+            <div class="cell-icon" [ngClass]="common.getLevelStyle(incident.level)"></div>
             <div class="title">{{incident.title}}</div>
-            <div>{{incident.reportTime.toLocaleTimeString()}}</div>
+            <div>{{incident.reportTime.toLocaleString()}}</div>
           </div>
         </li>
       </ul>
@@ -24,8 +24,8 @@
   <div *ngIf="currentIncident" class="inc-detail box-shadow">
     <div class="title">{{currentIncident.title}}</div>
     <div>{{currentIncident.reportTime.toLocaleTimeString()}}</div>
-    <div class="{{cmn.getLevelStyle(currentIncident.level)}}">
-      {{currentIncident.level + " - " + cmn.getLevelTitle(currentIncident.level)}}
+    <div class="{{common.getLevelStyle(currentIncident.level)}}">
+      {{currentIncident.level + " - " + common.getLevelTitle(currentIncident.level)}}
     </div>
     <div>{{currentIncident.description}}</div>
   </div>
