@@ -29,6 +29,10 @@ export class InMemoryDataService implements InMemoryDbService {
       username: 'John Patrick'
     };
 
-    return { incidents, 'login-user': loginUser };
+    return {
+      'login-user': loginUser,
+      'notice-count': incidents.length,
+      incidents
+    };
   }
 }

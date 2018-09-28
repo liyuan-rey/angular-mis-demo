@@ -15,14 +15,6 @@ export class IncidentService {
 
   constructor(private http: HttpClient) {}
 
-  getIncidentCount(): Observable<number> {
-    const url = `${this.incidentsUrl}/$count`;
-    return this.http.get<number>(url).pipe(
-      tap(_ => console.log('fetched incident count')),
-      catchError(handleError<number>('getIncidentCount', NaN))
-    );
-  }
-
   getIncidents(): Observable<Incident[]> {
     return this.http.get<IncidentJSON[]>(this.incidentsUrl).pipe(
       tap(_ => console.log('fetched incidents')),

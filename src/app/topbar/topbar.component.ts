@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { IncidentService } from '../incidents/incident.service';
+import { NoticeService } from '../shared/notice.service';
 import { User } from '../shared/user';
 import { UserService } from '../shared/user.service';
 
@@ -15,7 +16,7 @@ export class TopbarComponent implements OnInit {
 
   constructor(
     private userService: UserService,
-    private incidentService: IncidentService
+    private noticeService: NoticeService
   ) {}
 
   ngOnInit() {
@@ -23,7 +24,7 @@ export class TopbarComponent implements OnInit {
       .getLoginUser()
       .subscribe(loginUser => (this.loginUser = loginUser));
 
-    this.incidentService.getIncidentCount().subscribe(count => {
+    this.noticeService.getNoticeCount().subscribe(count => {
       this.noticeCount = count;
     });
   }
