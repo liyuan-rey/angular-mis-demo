@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { IncidentService } from '../incidents/incident.service';
+import { User } from '../shared/user';
 import { UserService } from '../shared/user.service';
 
 @Component({
@@ -9,8 +10,8 @@ import { UserService } from '../shared/user.service';
   styleUrls: ['./topbar.component.css']
 })
 export class TopbarComponent implements OnInit {
+  loginUser?: User;
   noticeCount: number;
-  username: string;
 
   constructor(
     private userService: UserService,
@@ -18,9 +19,12 @@ export class TopbarComponent implements OnInit {
   ) {}
 
   ngOnInit() {
+    this.userService
+      .getLoginUser()
+      .subscribe(loginUser => (this.loginUser = loginUser));
+
     this.incidentService.getIncidentCount().subscribe(count => {
       this.noticeCount = count;
     });
-    this.username = this.userService.getCurrentUser().username;
   }
 }
