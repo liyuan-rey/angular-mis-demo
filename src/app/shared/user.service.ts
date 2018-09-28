@@ -5,7 +5,6 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 import { handleError } from '../incidents/shared/common';
-import { CURRENT_LOGIN_USER } from './mock-users';
 import { User } from './user';
 
 @Injectable({
