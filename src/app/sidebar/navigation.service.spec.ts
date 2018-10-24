@@ -17,6 +17,10 @@ describe('NavigationService', () => {
     httpTestingController = TestBed.get(HttpTestingController);
   });
 
+  afterEach(() => {
+    httpTestingController.verify();
+  });
+
   it('should be created', inject(
     [NavigationService],
     (service: NavigationService) => {
@@ -29,11 +33,11 @@ describe('NavigationService', () => {
     (service: NavigationService) => {
       const expected: NavigationItem[] = [
         {
-          id: '01',
-          label: '警情管理',
+          id: 'id01',
+          label: 'label01',
           children: [
-            { id: '02', label: '当前警情', uri: '/incidents/pending-list' },
-            { id: '03', label: '历史警情', uri: '' }
+            { id: 'id02', label: 'label02', uri: 'uri02' },
+            { id: 'id03', label: 'label03', uri: 'uri03' }
           ]
         }
       ];

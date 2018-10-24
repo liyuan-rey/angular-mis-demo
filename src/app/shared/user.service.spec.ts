@@ -28,7 +28,7 @@ describe('UserService testing', () => {
   it('#getLoginUser should return test value from observable and HttpClient called once', inject(
     [UserService],
     (service: UserService) => {
-      const expected = { id: '01', username: 'user01' };
+      const expected = { id: 'id01', username: 'username01' };
 
       service.getLoginUser().subscribe(data => expect(data).toEqual(expected));
 

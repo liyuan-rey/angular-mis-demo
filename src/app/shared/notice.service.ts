@@ -20,7 +20,7 @@ export class NoticeService {
 
   getNoticeCount(): Observable<number> {
     return this.http.get<number>(urls.noticeCount).pipe(
-      tap(_ => console.log('fetched notice count')),
+      tap(_ => console.log(`fetched notice count = ${_}`)),
       catchError(handleError<number>('getNoticeCount', NaN))
     );
   }
