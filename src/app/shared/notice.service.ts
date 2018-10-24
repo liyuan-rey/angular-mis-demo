@@ -4,7 +4,7 @@ import { catchError, tap } from 'rxjs/operators';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
-import { handleError } from '../incidents/shared/common';
+import { handleError } from './common';
 import { Notice } from './notice';
 import { urlNoticeService as urls } from './web-api-urls';
 

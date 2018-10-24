@@ -4,7 +4,7 @@ import { catchError, map, mapTo, tap } from 'rxjs/operators';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
-import { handleError } from './shared/common';
+import { handleError } from '../shared/common';
 import { Incident, IncidentJSON } from './shared/incident';
 
 @Injectable({

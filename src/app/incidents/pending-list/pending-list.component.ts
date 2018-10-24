@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
 import { IncidentService } from '../incident.service';
-import { getLevelStyle, getLevelTitle } from '../shared/common';
 import { Incident } from '../shared/incident';
+import { getLevelStyle, getLevelTitle } from '../shared/utils';
 
 @Component({
   selector: 'incidents-pending-list',
