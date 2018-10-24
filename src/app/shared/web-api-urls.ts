@@ -1,5 +1,9 @@
 export const urlBase = 'api/';
 
+export const urlNavigationService = {
+  navigationSettings: urlBase + 'navigation-settings'
+};
+
 export const urlUserService = {
   loginUser: urlBase + 'login-user'
 };

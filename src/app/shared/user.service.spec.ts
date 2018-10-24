@@ -28,17 +28,15 @@ describe('UserService testing', () => {
   it('#getLoginUser should return test value from observable and HttpClient called once', inject(
     [UserService],
     (service: UserService) => {
-      const expectedData = { id: '01', username: 'user01' };
+      const expected = { id: '01', username: 'user01' };
 
-      service
-        .getLoginUser()
-        .subscribe(data => expect(data).toEqual(expectedData));
+      service.getLoginUser().subscribe(data => expect(data).toEqual(expected));
 
       const req = httpTestingController.expectOne(urls.loginUser);
 
       expect(req.request.method).toEqual('GET');
 
-      req.flush(expectedData);
+      req.flush(expected);
     }
   ));
 });

@@ -28,17 +28,17 @@ describe('NoticeService', () => {
   it('#getNoticeCount should return test value from observable and HttpClient called once', inject(
     [NoticeService],
     (service: NoticeService) => {
-      const expectedData = 2;
+      const expected = 2;
 
       service
         .getNoticeCount()
-        .subscribe(data => expect(data).toEqual(expectedData));
+        .subscribe(data => expect(data).toEqual(expected));
 
       const req = httpTestingController.expectOne(urls.noticeCount);
 
       expect(req.request.method).toEqual('GET');
 
-      req.flush(expectedData);
+      req.flush(expected);
     }
   ));
 });
