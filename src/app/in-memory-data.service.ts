@@ -1,11 +1,34 @@
 import { InMemoryDbService } from 'angular-in-memory-web-api';
 import { default as uniqueId } from 'lodash-es/uniqueId';
 
+// TODO 作为调试服务用途，也许不必指定数据类型，因为这会导致 import 导入形成
+// 从 app 到 module 的模块依赖
 import { Incident } from './incidents/shared/incident';
 import { User } from './shared/user';
+import { NavigationItem } from './sidebar/shared/navigation-item';
 
 export class InMemoryDataService implements InMemoryDbService {
   createDb() {
+    const navigationSettings: NavigationItem[] = [
+      {
+        id: uniqueId(),
+        label: '警情管理',
+        children: [
+          { id: uniqueId(), label: '当前警情', uri: '/incidents/pending-list' },
+          { id: uniqueId(), label: '历史警情', uri: '' }
+        ]
+      },
+      {
+        id: uniqueId(),
+        label: '资源管理',
+        children: [
+          { id: uniqueId(), label: '资源人', uri: '/forces/ground-forces' },
+          { id: uniqueId(), label: '资源车', uri: '' },
+          { id: uniqueId(), label: '资源物资', uri: '' }
+        ]
+      }
+    ];
+
     const incidents: Incident[] = [
       {
         id: uniqueId(),
@@ -30,6 +53,7 @@ export class InMemoryDataService implements InMemoryDbService {
     };
 
     return {
+      'navigation-settings': navigationSettings,
       'login-user': loginUser,
       'notice-count': incidents.length,
       incidents

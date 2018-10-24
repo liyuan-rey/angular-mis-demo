@@ -16,11 +16,14 @@ export class SidebarComponent implements OnInit {
   constructor(private navigationService: NavigationService) {}
 
   ngOnInit() {
-    this.navigationService
-      .getNavigationConfig()
-      .subscribe(items => (this.navData = items));
-    this.activedPageId = this.navData[0].id;
-    this.currentItemId = this.navData[0].children[0].id;
+    this.navigationService.getNavigationSettings().subscribe(items => {
+      this.navData = items;
+
+      if (this.navData.length > 0) {
+        this.activedPageId = this.navData[0].id;
+        this.currentItemId = this.navData[0].children[0].id;
+      }
+    });
   }
 
   isPageActived(p) {
